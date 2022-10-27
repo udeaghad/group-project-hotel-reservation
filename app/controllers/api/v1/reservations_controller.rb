@@ -8,7 +8,11 @@ module Api
       end
 
       def create
-        reservation = Reservation.new(user_id: params[:user_id], hotel_id: params[:hotel_id])
+        reservation = Reservation.new()
+        reservation.user_id = params[:user_id]
+        reservation.hotel_id = params[:hotel_id]
+        reservation.city = reservation_params[:city]
+        reservation.date = reservation_params[:date]
         if reservation.save
           render json: ReservationSerializer.new(reservation, options).serialized_json
         else
@@ -28,10 +32,9 @@ module Api
 
       private
            
-      # def reservation_params
-      #   params.require(:reservation).permit(user_id: params[:user_id], hotel_id: params[:hotel_id])
-      # end
-
+      def reservation_params
+        params.require(:reservation).permit(:city, :date)
+      end
 
       def options 
         @options ||= { include: %i[hotel] }
