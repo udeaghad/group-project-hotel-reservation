@@ -1,4 +1,4 @@
-class Reservaton < ApplicationRecord
+class Reservation < ApplicationRecord
   belongs_to :user, class_name: "User"
   belongs_to :hotel, class_name: "Hotel"
 
