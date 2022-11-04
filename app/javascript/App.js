@@ -1,11 +1,26 @@
-import React from "react";
+import React from 'react';
+import Header from './components/Header';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/about';
+import HotelList from './pages/HotelList';
+import ReservationList from './pages/ReservationList';
+import Sahar from './pages/sahar/sahar';
 
-const App = () => {
+  
+function App() {
   return (
-    <div>
-      <h1>Hello React World!</h1>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path='*' element={<Home />} />
+        <Route path='/hotellist' element={<HotelList />} />  
+        <Route path='/reservationlist' element={<ReservationList />} />  
+        <Route path='/sahar/sahar' element={<Sahar />} />  
+        <Route path='/about' element={<About />} />        
+      </Routes>
+    </Router>
   );
 }
-
+  
 export default App;
