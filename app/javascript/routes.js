@@ -1,6 +1,6 @@
 import Reserve from '../Components/Reserve/Reserve';
 import MyReservations from '../Components/MyReservations/MyReservations';
-const routes = [
+const Routes = [
   {
     path: '/reserve',
     element: <Reserve />,
@@ -11,4 +11,4 @@ const routes = [
   }
 ];
 
-export default routes;
+export default Routes;
