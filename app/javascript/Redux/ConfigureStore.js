@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import getDetailsReducer from "./hotelDetailsReducer"
+import getAllHotelsReducer from "./HomePageReducer"
 
 const rootReducer = combineReducers({
-    hotelDetails: getDetailsReducer
+    hotelDetails: getDetailsReducer,
+    allHotels: getAllHotelsReducer
 })
 
 const store = configureStore({
