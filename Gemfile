@@ -51,6 +51,10 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'rspec-rails', '~> 6.0.0'
+  gem 'ffi', '~> 1.15', '>= 1.15.5'
+  gem 'rails-controller-testing'
+  # gem 'rswag-specs'
 end
 
 group :development do
@@ -69,6 +73,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'factory_bot_rails'
 end
 
 gem "fast_jsonapi"
+
+gem 'rswag'
