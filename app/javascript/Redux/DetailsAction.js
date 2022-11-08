@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const GET_HOTEL_DETAILS = "GET_HOTEL_DETAILS"
 
-const getHotelDetails = createAsyncThunk (
+const getHotelDetails = createAsyncThunk(
     GET_HOTEL_DETAILS,
     async (id) => {
         // const request = new Request(`/api/v1/users/1/hotels/${id}`)
