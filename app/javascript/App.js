@@ -7,7 +7,8 @@ import HotelList from './pages/HotelList';
 import ReservationList from './pages/ReservationList';
 import Sahar from './pages/sahar/sahar';
 import ReservedDetails from './pages/Reserve/ReservedDetails';
-import CreateUser from './components/UserLogin';
+import CreateUser from './components/CreateLogin';
+import UserLogin from './components/UserLogin';
 
   
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/Reserve/ReservedDetails' element={<ReservedDetails />} />    
         <Route path='/about' element={<About />} /> 
         <Route path='/createuser' element={<CreateUser />} />       
+        <Route path='/userlogin' element={<UserLogin />} />
       </Routes>
     </Router>
   );

@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import createUser from '../Redux/UserAction';
 import { useNavigate } from 'react-router-dom';
 
-const UserLogin = () => {
 
+const CreateUser = () => {
   const [user, setUser] = useState()
 
   const dispatch = useDispatch()
@@ -14,8 +14,10 @@ const handleSubmit = async(e) => {
   e.preventDefault()
  
   try {
-    const response = await fetch(`/api/v1/users/${user}`, {
-      method: 'GET'
+    const response = await fetch('/api/v1/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({username: user})
     })
     const result = await response.json()
     console.log(result.data)
@@ -26,9 +28,11 @@ const handleSubmit = async(e) => {
   
   navigate('/hotellist')
 }
+
+
   return (
     <div>
-      <h1>User Login</h1>
+      <h1>Create User</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Username:
@@ -39,8 +43,9 @@ const handleSubmit = async(e) => {
         <button type="submit">Submit</button>
 
         </form>
+
     </div>
   );
-};
+}
 
-export default UserLogin;
+export default CreateUser;

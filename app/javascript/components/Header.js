@@ -18,9 +18,13 @@ function Header() {
           <li className="header-link"><Link to="/hotellist">Hotel List</Link></li>
           <li className="header-link"><Link to="/reservationlist">Reservation List</Link></li>
           <li className="header-link"><Link to="/sahar/sahar">Sahar</Link></li>
-          <li className="header-link"><Link to="/about">About</Link></li>
-          <li className="header-link"><Link to="/createuser">Create User</Link></li>
-          {attributes && <li className="header-link">Welcome {attributes.username}</li>}
+          <li className="header-link"><Link to="/about">About</Link></li>          
+          {attributes ? <li className="header-link">Welcome {attributes.username}</li> :
+          <div>
+          <li className="header-link"><Link to="/createuser">Create New Account</Link></li>
+          <li className="header-link"><Link to="/userlogin">Login</Link></li>
+          </div>
+          }
           
         </ul>
       </div>

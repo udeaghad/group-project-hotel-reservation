@@ -4,7 +4,7 @@ module Api
       protect_from_forgery with: :null_session
 
       def show
-        user = User.find_by(id: params[:id])
+        user = User.find_by(username: params[:id])
         render json: UserSerializer.new(user).serialized_json
       end
 
