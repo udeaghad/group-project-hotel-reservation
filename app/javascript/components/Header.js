@@ -1,13 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {useSelector} from 'react-redux'
-
+import {useSelector, useDispatch} from 'react-redux'
+import createUser from '../Redux/UserAction';
 
 
 function Header() {
 
   const user = useSelector((state) => state.user)
   const {attributes} = user
+
+  const dispatch = useDispatch()
+
+  const handleSignOut = () => {    
+    dispatch(createUser({}))
+  }
 
   return (
     <div className="header-container">
@@ -19,7 +25,12 @@ function Header() {
           <li className="header-link"><Link to="/reservationlist">Reservation List</Link></li>
           <li className="header-link"><Link to="/sahar/sahar">Sahar</Link></li>
           <li className="header-link"><Link to="/about">About</Link></li>          
-          {attributes ? <li className="header-link">Welcome {attributes.username}</li> :
+          {attributes ? 
+          <div>
+          <li className="header-link">Welcome {attributes.username}</li>
+          <li className="header-link"><Link to="/" onClick={handleSignOut} >Logout</Link></li>
+          </div> 
+          :
           <div>
           <li className="header-link"><Link to="/createuser">Create New Account</Link></li>
           <li className="header-link"><Link to="/userlogin">Login</Link></li>
