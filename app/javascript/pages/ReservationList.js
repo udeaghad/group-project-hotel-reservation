@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import {useDispatch } from 'react-redux';
 import DetailsAction from '../Redux/DetailsAction'
 import {useSelector} from 'react-redux'
+import getHotelDetails from '../Redux/DetailsAction'
 
 
 const url = '/api/v1/users/1/reservations/'
@@ -12,7 +13,7 @@ const url = '/api/v1/users/1/reservations/'
 function ReservationList() {
 
   const user = useSelector(state => state.user)
-
+  const user_id = user.id
     const [reservations, setReservations] = useState([])
 
     useEffect(() => {        
@@ -34,17 +35,14 @@ function ReservationList() {
 const dispatch = useDispatch()
   
 const routeDetails = (e) => {
-  e.preventDefault()
-    console.log(e.target.id)
+    
     let pathDetails = `/Reserve/ReservedDetails`;
     navigate(pathDetails);
-     dispatch(DetailsAction(e.target.id))
+     dispatch(getHotelDetails({user_id:user_id, hotel_id: e.target.id}))
   }
 
   const handleDelete = async(reserve_id, hotel_id) => {
-  //  const reserve_id = e.target.className
-  console.log(reserve_id, hotel_id)
-   
+  
    try {
     const deleteReservation = await fetch(`api/v1/users/${user.id}/hotels/${hotel_id}/reservations/${reserve_id}`, {
       method: 'DELETE'
@@ -69,7 +67,7 @@ const routeDetails = (e) => {
                             <span>City: </span><p>{reserve.attributes.city}</p>
                             <span>Date: </span><p>{reserve.attributes.date}</p>
                             <span>Hotel Id: </span><p>{reserve.attributes.hotel_id}</p>
-                            <button id={reserve.id} type='button' onClick={(e) => routeDetails(e)}>Details</button>
+                            <button id={reserve.attributes.hotel_id} type='button' onClick={(e) => routeDetails(e)}>Details</button>
                             <button className={reserve.id}  type='button' onClick={() => handleDelete(reserve.id, reserve.attributes.hotel_id )}>Delete</button>
                         </li>
                     </ul>                    
