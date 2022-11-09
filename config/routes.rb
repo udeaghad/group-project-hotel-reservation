@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do 
       resources :hotels, only: [:index]
-      resources :users do     
+      resources :users do 
+        resources :reservations, only: [:index]    
         resources :hotels, only: [:index, :show] do 
           resources :reservations, only: [:create, :destroy]  
         end    
@@ -17,12 +18,12 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :api do
-    namespace :v1 do
-      resources :users do
-        resources :reservations, only: [:index]
-      end
-    end
-  end
+  # namespace :api do
+  #   namespace :v1 do
+  #     resources :users do
+        
+  #     end
+  #   end
+  # end
         
 end

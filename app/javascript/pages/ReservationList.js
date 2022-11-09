@@ -3,6 +3,7 @@ import ReservedDetails from './Reserve/ReservedDetails';
 import { useNavigate } from "react-router-dom";
 import {useDispatch } from 'react-redux';
 import DetailsAction from '../Redux/DetailsAction'
+import {useSelector} from 'react-redux'
 
 
 const url = '/api/v1/users/1/reservations/'
@@ -10,12 +11,14 @@ const url = '/api/v1/users/1/reservations/'
 
 function ReservationList() {
 
+  const user = useSelector(state => state.user)
+
     const [reservations, setReservations] = useState([])
 
     useEffect(() => {        
         const fetchData = async () => {
           try {
-            const response = await fetch(url);
+            const response = await fetch(`/api/v1/users/${user.id}/reservations/`);
             const json = await response.json();             
             setReservations(json.data);   
             console.log(json.included)         
@@ -31,6 +34,7 @@ function ReservationList() {
 const dispatch = useDispatch()
   
 const routeDetails = (e) => {
+  e.preventDefault()
     console.log(e.target.id)
     let pathDetails = `/Reserve/ReservedDetails`;
     navigate(pathDetails);
@@ -42,7 +46,7 @@ const routeDetails = (e) => {
   console.log(reserve_id, hotel_id)
    
    try {
-    const deleteReservation = await fetch(`api/v1/users/1/hotels/${hotel_id}/reservations/${reserve_id}`, {
+    const deleteReservation = await fetch(`api/v1/users/${user.id}/hotels/${hotel_id}/reservations/${reserve_id}`, {
       method: 'DELETE'
     }) 
     console.log(deleteReservation)
