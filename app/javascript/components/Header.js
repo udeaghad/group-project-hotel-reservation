@@ -7,6 +7,7 @@ import createUser from '../Redux/UserAction';
 function Header() {
 
   const user = useSelector((state) => state.user)
+  
   const {attributes} = user
 
   const dispatch = useDispatch()

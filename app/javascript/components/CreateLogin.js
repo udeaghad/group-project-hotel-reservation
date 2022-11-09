@@ -21,12 +21,17 @@ const handleSubmit = async(e) => {
     })
     const result = await response.json()
     console.log(result.data)
+    
+    if (result.data) {      
     dispatch(createUser(result.data))
+    navigate('/hotellist')
+    } else {
+      alert('User already exist')
+    }
   } catch (error) {
     console.error(error.message)
   } 
   
-  navigate('/hotellist')
 }
 
 

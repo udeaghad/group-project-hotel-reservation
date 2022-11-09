@@ -10,6 +10,7 @@ const UserLogin = () => {
   const dispatch = useDispatch()
 
 const navigate = useNavigate()
+
 const handleSubmit = async(e) => { 
   e.preventDefault()
  
@@ -19,12 +20,19 @@ const handleSubmit = async(e) => {
     })
     const result = await response.json()
     console.log(result.data)
-    dispatch(createUser(result.data))
+
+    if (result.data) {
+      dispatch(createUser(result.data))
+      navigate('/hotellist')
+    } else {
+      alert('User not found')
+    }
+    
   } catch (error) {
     console.error(error.message)
   } 
   
-  navigate('/hotellist')
+ 
 }
   return (
     <div>
