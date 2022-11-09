@@ -6,7 +6,7 @@ function ReservedDetails(){
 
   const hotelDetails = useSelector((state) => state.hotelDetails)
   console.log(hotelDetails)
-  const {id, attributes } = hotelDetails
+  const {attributes } = hotelDetails
   // console.log(attributes)
   return (
     <div>

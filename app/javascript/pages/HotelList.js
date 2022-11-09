@@ -1,11 +1,14 @@
 import React, { useEffect, useState} from 'react';
+import { useSelector } from 'react-redux';
 
 
-const url = '/api/v1/users/1/hotels'
+const url = '/api/v1/hotels'
 
 function HotelList() {
 
     const [hotels, setHotels] = useState([])
+
+    const user = useSelector(state => state.user)
 
     useEffect(() => {        
         const fetchData = async () => {
@@ -23,7 +26,7 @@ function HotelList() {
     
     
     function book(id){
-        const addReserveURL = `/api/v1/users/1/hotels/${id}/reservations`;
+        const addReserveURL = `/api/v1/users/${user.id}/hotels/${id}/reservations`;
 
         fetch(addReserveURL, {
             method: "POST",

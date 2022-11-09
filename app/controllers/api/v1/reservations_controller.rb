@@ -8,15 +8,15 @@ module Api
       end
 
       def create
-        reservation = Reservation.new()
-        reservation.user_id = params[:user_id]
-        reservation.hotel_id = params[:hotel_id]
-        reservation.city = reservation_params[:city]
-        reservation.date = reservation_params[:date]
-        if reservation.save
-          render json: ReservationSerializer.new(reservation, options).serialized_json
+        @reservation = Reservation.new()
+        @reservation.user_id = params[:user_id]
+        @reservation.hotel_id = params[:hotel_id]
+        @reservation.city = reservation_params[:city]
+        @reservation.date = reservation_params[:date]
+        if @reservation.save
+          render json: ReservationSerializer.new(@reservation, options).serialized_json
         else
-          render json: {error: reservation.errors.messages}, status: 422
+          render json: {error: @reservation.errors.messages}, status: 422
         end
       end
 

@@ -7,6 +7,7 @@ import HotelList from './pages/HotelList';
 import ReservationList from './pages/ReservationList';
 import Sahar from './pages/sahar/sahar';
 import ReservedDetails from './pages/Reserve/ReservedDetails';
+import CreateUser from './components/UserLogin';
 
   
 function App() {
@@ -19,7 +20,8 @@ function App() {
         <Route path='/reservationlist' element={<ReservationList />} />  
         <Route path='/sahar/sahar' element={<Sahar />} /> 
         <Route path='/Reserve/ReservedDetails' element={<ReservedDetails />} />    
-        <Route path='/about' element={<About />} />        
+        <Route path='/about' element={<About />} /> 
+        <Route path='/createuser' element={<CreateUser />} />       
       </Routes>
     </Router>
   );
