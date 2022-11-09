@@ -1,7 +1,6 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/v1/reservations', type: :request do
-
   path '/api/v1/users/{user_id}/reservations' do
     # You'll want to customize the parameter types...
     parameter name: 'user_id', in: :path, type: :string, description: 'user_id'
@@ -24,10 +23,10 @@ RSpec.describe 'api/v1/reservations', type: :request do
 
   path '/api/v1/users/{user_id}/hotels/{hotel_id}/reservations' do
     # You'll want to customize the parameter types...
-   
+
     parameter name: 'user_id', in: :path, type: :string, description: 'user_id'
     parameter name: 'hotel_id', in: :path, type: :string, description: 'hotel_id'
-    
+
     post('create reservation') do
       response(200, 'successful') do
         let(:user_id) { '123' }
@@ -37,12 +36,10 @@ RSpec.describe 'api/v1/reservations', type: :request do
           type: :object,
           properties: {
             city: { type: :string },
-            date: { type: :string }           
+            date: { type: :string }
           },
           required: %w[city date]
         }
-        
-
 
         after do |example|
           example.metadata[:response][:content] = {
