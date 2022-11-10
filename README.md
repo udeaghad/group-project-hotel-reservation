@@ -21,16 +21,16 @@ To get a local copy up and running follow these simple steps.
 - A code editor like Visual Studio Code with Git and nodejs.
 - You can check if Git is installed by running the following command in the terminal.
 - `$ git --version`
-Clone the repo from here.
+- Clone the repo from here.
 - `$ git clone https://github.com/maenkhraisha/hotel-reservation.git`
 
 # Usage
 ## Run locally
-Make your way to the correct directory by running this command:
+- Make your way to the correct directory by running this command:
 - `$ cd hotel-reservation`
-Then you can run this command to configure the app in your PC:
+- Then you can run this command to configure the app in your PC:
 - `$ rails db:drop db:create db:migrate db:seed`
-For starting the server to see the app in windows you can run this command:
+- For starting the server to see the app in windows you can run this command:
 `foreman start`
 
 # Authors
