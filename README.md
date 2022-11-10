@@ -3,7 +3,7 @@ This application is a web application for final capstone project that you can fi
 
 ## Project Documentation 📄
 - [Live Demo]()
-- [API Documentation]()
+- [API Documentation](http://127.0.0.1:5000/api-docs/index.html)
 
 ## Team members: 4 (Dozie Udeagha, SaharSaba Amiri, Mean Mohammad, Bright Kweku Ahiadeke )
 
