@@ -4,10 +4,6 @@ import {useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux'
 import getHotelDetails from '../Redux/DetailsAction'
 
-
-const url = '/api/v1/users/1/reservations/'
-// const url1 = '/api/v1/users/1/hotels/1/reservations'
-
 function ReservationList() {
 
   const user = useSelector(state => state.user)
@@ -18,34 +14,8 @@ function ReservationList() {
         const fetchData = async () => {
           try {
             const response = await fetch(`/api/v1/users/${user.id}/reservations/`);
-            const json = await response.json(); 
-
-            let newReservation = [];
-            
-            console.log("Data "+json.data.length);
-            console.log("included "+json.included.length);
-
-            // for(let i =0 ; i < json.data.length ; i++){   
-              
-            //   const hotelId = json.data[i].attributes.hotel_id;
-
-            //   const hotelName = json.included.filter(item => hotelId == item.id )
-            //   const hotelPrice = json.included.filter(item => hotelId == item.id )
-
-            //   newReservation.push({
-            //     id:json.data[i].id,
-            //     hotel_id:json.data[i].attributes.hotel_id,
-            //     date:json.data[i].attributes.date,
-            //     city:json.data[i].attributes.city,
-                
-            //     name: hotelName,
-            //     price: hotelPrice
-
-            //     })
-            // }
-            setReservations(newReservation); 
-            
-            console.log(newReservation);
+            const json = await response.json();             
+           setReservations(json.data);       
 
           } catch (error) {
             console.log("error", error);
@@ -68,10 +38,10 @@ const routeDetails = (e) => {
   const handleDelete = async(reserve_id, hotel_id) => {
   
    try {
-    const deleteReservation = await fetch(`api/v1/users/${user.id}/hotels/${hotel_id}/reservations/${reserve_id}`, {
+     await fetch(`api/v1/users/${user.id}/hotels/${hotel_id}/reservations/${reserve_id}`, {
       method: 'DELETE'
     }) 
-    console.log(deleteReservation)
+    
     const newReservations = reservations.filter(reserve => reserve_id !== reserve.id)
     setReservations(newReservations)
     
@@ -89,20 +59,20 @@ const routeDetails = (e) => {
                     <ul>
                         <li key={reserve.id}>
                             <div>
-                              <span>City: </span><span>{reserve.city}</span>
+                              <span>City: </span><span>{reserve.attributes.city}</span>
                             </div>
                             <div>
-                              <span>Date: </span><span>{reserve.date}</span>
+                              <span>Date: </span><span>{reserve.attributes.date}</span>
                             </div>
                             <div>
-                              <span>Price: </span><span>{reserve.price}</span>
+                              <span>Price: </span><span>{reserve.attributes.price}</span>
                             </div>
                             <div>
-                              <span>name: </span><span>{reserve.name}</span>
+                              <span>name: </span><span>{reserve.attributes.hotel_name}</span>
                             </div>
                             <div>
-                              <button id={reserve.id} type='button' onClick={(e) => routeDetails(e)}>Details</button>
-                              <button className={reserve.id}  type='button' onClick={() => handleDelete(reserve.id, reserve.hotel_id )}>Delete</button>
+                              <button id={reserve.attributes.hotel_id} type='button' onClick={(e) => routeDetails(e)}>Details</button>
+                              <button className={reserve.id}  type='button' onClick={() => handleDelete(reserve.id, reserve.attributes.hotel_id )}>Delete</button>
                             </div>                            
                         </li>
                     </ul>                    

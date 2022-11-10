@@ -20,8 +20,7 @@ const handleSubmit = async(e) => {
       body: JSON.stringify({username: user})
     })
     const result = await response.json()
-    console.log(result.data)
-    
+        
     if (result.data) {      
     dispatch(createUser(result.data))
     navigate('/hotellist')
