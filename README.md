@@ -31,7 +31,7 @@ To get a local copy up and running follow these simple steps.
 - Then you can run this command to configure the app in your PC:
 - `$ rails db:drop db:create db:migrate db:seed`
 - For starting the server to see the app in windows you can run this command:
-`foreman start`
+- `foreman start`
 
 # Authors
 ## 👤 Mean Mohammad
