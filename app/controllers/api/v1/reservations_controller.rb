@@ -13,6 +13,8 @@ module Api
         @reservation.hotel_id = params[:hotel_id]
         @reservation.city = reservation_params[:city]
         @reservation.date = reservation_params[:date]
+        @reservation.hotel_name = reservation_params[:hotel_name]
+        @reservation.price = reservation_params[:price]
         if @reservation.save
           render json: ReservationSerializer.new(@reservation, options).serialized_json
         else
@@ -33,7 +35,7 @@ module Api
       private
 
       def reservation_params
-        params.require(:reservation).permit(:city, :date)
+        params.require(:reservation).permit(:city, :date, :hotel_name, :price)
       end
 
       def options
