@@ -1,8 +1,6 @@
 import React, { useEffect, useState} from 'react';
-import ReservedDetails from './Reserve/ReservedDetails';
 import { useNavigate } from "react-router-dom";
 import {useDispatch } from 'react-redux';
-import DetailsAction from '../Redux/DetailsAction'
 import {useSelector} from 'react-redux'
 import getHotelDetails from '../Redux/DetailsAction'
 
@@ -20,9 +18,26 @@ function ReservationList() {
         const fetchData = async () => {
           try {
             const response = await fetch(`/api/v1/users/${user.id}/reservations/`);
-            const json = await response.json();             
-            setReservations(json.data);   
-            console.log(json.included)         
+            const json = await response.json(); 
+
+            let newReservation = [];
+            
+            console.log("Data "+json.data.length);
+            console.log("included "+json.included.length);
+
+            for(let i =0 ; i < json.data.length ; i++){                            
+              newReservation.push({
+                id:json.data[i].id,
+                date:json.data[i].attributes.date,
+                city:json.data[i].attributes.city,
+                name:json.included[i].attributes.name,
+                price:json.included[i].attributes.price,
+                hotel_id:json.included[i].id})
+            }
+            setReservations(newReservation); 
+
+            console.log(newReservation);
+
           } catch (error) {
             console.log("error", error);
           }
@@ -59,21 +74,33 @@ const routeDetails = (e) => {
 
 
     return(
-            <div>
-                <h1>Reservation List</h1>
+       <div>
+                <h1>Reservation List</h1>                
                 {reservations.map(reserve => 
                     <ul>
                         <li key={reserve.id}>
-                            <span>City: </span><p>{reserve.attributes.city}</p>
-                            <span>Date: </span><p>{reserve.attributes.date}</p>
-                            <span>Hotel Id: </span><p>{reserve.attributes.hotel_id}</p>
-                            <button id={reserve.attributes.hotel_id} type='button' onClick={(e) => routeDetails(e)}>Details</button>
-                            <button className={reserve.id}  type='button' onClick={() => handleDelete(reserve.id, reserve.attributes.hotel_id )}>Delete</button>
+                            <div>
+                              <span>City: </span><span>{reserve.city}</span>
+                            </div>
+                            <div>
+                              <span>Date: </span><span>{reserve.date}</span>
+                            </div>
+                            <div>
+                              <span>Price: </span><span>{reserve.price}</span>
+                            </div>
+                            <div>
+                              <span>name: </span><span>{reserve.name}</span>
+                            </div>
+                            <div>
+                              <button id={reserve.id} type='button' onClick={(e) => routeDetails(e)}>Details</button>
+                              <button className={reserve.id}  type='button' onClick={() => handleDelete(reserve.id, reserve.hotel_id )}>Delete</button>
+                            </div>                            
                         </li>
                     </ul>                    
                     )}
-            </div> 
-        )
+                    
+            </div>  
+            )
     
     
 }

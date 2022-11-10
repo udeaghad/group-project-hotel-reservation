@@ -5,10 +5,10 @@ import Home from './pages/Home';
 import About from './pages/about';
 import HotelList from './pages/HotelList';
 import ReservationList from './pages/ReservationList';
-import Sahar from './pages/sahar/sahar';
 import ReservedDetails from './pages/Reserve/ReservedDetails';
 import CreateUser from './components/CreateLogin';
 import UserLogin from './components/UserLogin';
+import BookReservations from './components/BookReservations';
 
   
 function App() {
@@ -18,9 +18,9 @@ function App() {
       <Routes>
         <Route path='*' element={<Home />} />
         <Route path='/hotellist' element={<HotelList />} />  
-        <Route path='/reservationlist' element={<ReservationList />} />  
-        <Route path='/sahar/sahar' element={<Sahar />} /> 
-        <Route path='/Reserve/ReservedDetails' element={<ReservedDetails />} />    
+        <Route path='/reservationlist' element={<ReservationList />} />          
+        <Route path='/Reserve/ReservedDetails' element={<ReservedDetails />} /> 
+        <Route path='/components/BookReservations' element={<BookReservations />} />    
         <Route path='/about' element={<About />} /> 
         <Route path='/createuser' element={<CreateUser />} />       
         <Route path='/userlogin' element={<UserLogin />} />

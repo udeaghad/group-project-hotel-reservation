@@ -11,8 +11,7 @@ const Home = () => {
   useEffect(() => {
 	dispatch(getAllHotels());
 	  }, []);
-  console.log(hotels);
-
+  
 return (
 	<div>
 	<h1>Home</h1>
