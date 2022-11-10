@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 
 function ReservedDetails(){ 
 
   const hotelDetails = useSelector((state) => state.hotelDetails)
-  console.log(hotelDetails)
+  
   const {attributes } = hotelDetails
-  // console.log(attributes)
+  
   return (
     <div>
       <h1>Hotel Details</h1>

@@ -23,8 +23,7 @@ function Header() {
         <ul className="header-list">
           <li className="header-link"><Link to="/">Home</Link></li>
           <li className="header-link"><Link to="/hotellist">Hotel List</Link></li>
-          <li className="header-link"><Link to="/reservationlist">Reservation List</Link></li>
-          <li className="header-link"><Link to="/sahar/sahar">Sahar</Link></li>
+          <li className="header-link"><Link to="/reservationlist">Reservation List</Link></li>          
           <li className="header-link"><Link to="/about">About</Link></li>          
           {attributes ? 
           <div>

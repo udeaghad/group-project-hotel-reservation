@@ -19,7 +19,7 @@ const handleSubmit = async(e) => {
       method: 'GET'
     })
     const result = await response.json()
-    console.log(result.data)
+    
 
     if (result.data) {
       dispatch(createUser(result.data))

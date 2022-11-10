@@ -8,7 +8,7 @@ const getAllHotels = createAsyncThunk(
         // const request = new Request(`/api/v1/users/1/hotels/${id}`)
         const response = await fetch(`/api/v1/hotels`);
         const result = await response.json()
-        console.log(result)
+        
         return result.data
     }
 )
