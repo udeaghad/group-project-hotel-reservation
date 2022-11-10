@@ -38,7 +38,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
             city: { type: :string },
             date: { type: :string },
             hotel_name: { type: :string },
-            price: { type: :string },
+            price: { type: :string }
           },
           required: %w[city date hotel_name price]
         }
