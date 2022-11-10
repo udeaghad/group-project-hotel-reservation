@@ -7,12 +7,12 @@ import HotelList from './pages/HotelList';
 import ReservationList from './pages/ReservationList';
 import Sahar from './pages/sahar/sahar';
 import ReservedDetails from './pages/Reserve/ReservedDetails';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
   
 function App() {
   return (
     <Router>
-      <Header />
       <Routes>
         <Route path='*' element={<Home />} />
         <Route path='/hotellist' element={<HotelList />} />  

@@ -1,3 +1,73 @@
-body{
-    
+body {
+  /* blur image */
+}
+
+.bg-main {
+  filter: blur(1px);
+  height: 100vh;
+  width: 100%;
+  background-color: #4242f5;
+  background-image: url("http://www.hotelnicesorrento.com/images/banner-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(2px);
+  position: fixed;
+  display: block;
+  left: 0;
+  right: 0;
+  z-index: -3;
+}
+
+.nav-item > a {
+  background: #006ca8;
+  padding: 13px;
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+}
+
+.main-wrapper {
+  height: 100vh;
+}
+
+.sidebar {
+  background: #4f555987;
+}
+
+.hotel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  margin: 0 10px;
+  border-radius: 5px;
+  padding: 10px 0;
+  box-shadow: 0px 0px 10px;
+}
+
+.hotel-card img {
+  border-radius: 50%;
+  width: 80%;
+  border: 10px solid #046ca8;
+}
+
+.react-multi-carousel-item {
+  width: 250px !important;
+}
+
+.react-multi-carousel-list {
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#sidebarMenu {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
 }
