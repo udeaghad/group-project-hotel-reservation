@@ -25,17 +25,26 @@ function ReservationList() {
             console.log("Data "+json.data.length);
             console.log("included "+json.included.length);
 
-            for(let i =0 ; i < json.data.length ; i++){                            
-              newReservation.push({
-                id:json.data[i].id,
-                date:json.data[i].attributes.date,
-                city:json.data[i].attributes.city,
-                name:json.included[i].attributes.name,
-                price:json.included[i].attributes.price,
-                hotel_id:json.included[i].id})
-            }
-            setReservations(newReservation); 
+            // for(let i =0 ; i < json.data.length ; i++){   
+              
+            //   const hotelId = json.data[i].attributes.hotel_id;
 
+            //   const hotelName = json.included.filter(item => hotelId == item.id )
+            //   const hotelPrice = json.included.filter(item => hotelId == item.id )
+
+            //   newReservation.push({
+            //     id:json.data[i].id,
+            //     hotel_id:json.data[i].attributes.hotel_id,
+            //     date:json.data[i].attributes.date,
+            //     city:json.data[i].attributes.city,
+                
+            //     name: hotelName,
+            //     price: hotelPrice
+
+            //     })
+            // }
+            setReservations(newReservation); 
+            
             console.log(newReservation);
 
           } catch (error) {
