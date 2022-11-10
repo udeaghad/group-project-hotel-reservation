@@ -17,8 +17,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # username: postgres
-  # password: wisdom83@
+  username: postgres
+  password: wisdom83@
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -27,8 +27,8 @@ development:
   <<: *default
   database: hotel_reservation_development
   host: localhost
-  username: postgres
-  password: postgres
+  # username: postgres
+  # password: postgres
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -63,8 +63,8 @@ development:
 test:
   <<: *default
   database: hotel_reservation_test
-  username: postgres
-  password: postgres
+  # username: postgres
+  # password: postgres
   
 
 # As with config/credentials.yml, you never want to store sensitive information,
