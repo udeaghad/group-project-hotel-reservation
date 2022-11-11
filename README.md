@@ -35,7 +35,7 @@ To get a local copy up and running follow these simple steps.
 ## Run locally
 - Make your way to the correct directory by running this command:
 - `$ cd hotel-reservation`
-- Run npm install
+- Run `npm install`
 - Run `bundle install`
 - From `config\database.yml` file, change the username and password to your own username and password.
 - Then you can run this command to configure the app in your PC:
