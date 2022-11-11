@@ -1,11 +1,12 @@
 import React from 'react';
-import Header from './components/Header';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/about';
 import HotelList from './pages/HotelList';
 import ReservationList from './pages/ReservationList';
 import ReservedDetails from './pages/Reserve/ReservedDetails';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 import CreateUser from './components/CreateLogin';
 import UserLogin from './components/UserLogin';
 import BookReservations from './components/BookReservations';
@@ -14,7 +15,6 @@ import BookReservations from './components/BookReservations';
 function App() {
   return (
     <Router>
-      <Header />
       <Routes>
         <Route path='*' element={<Home />} />
         <Route path='/hotellist' element={<HotelList />} />  
