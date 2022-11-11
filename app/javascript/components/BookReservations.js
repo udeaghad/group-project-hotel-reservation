@@ -17,15 +17,16 @@ const BookReservations = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        `/api/v1/users/${user.id}/hotels/${hotel.id}/reservations`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ date: date, city: city }),
-        }
-      );
-      const result = await response.json();
+      await fetch(`/api/v1/users/${user.id}/hotels/${hotel.id}/reservations`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          date: date,
+          city: city,
+          hotel_name: hotel.attributes.name,
+          price: hotel.attributes.price,
+        }),
+      });
 
       navigate("/reservationlist");
     } catch (error) {
@@ -61,7 +62,7 @@ const BookReservations = () => {
                         <p className="title">{hotel.attributes.name}</p>
                         <p>{hotel.attributes.price}</p>
                         <p>{hotel.attributes.bedroom}</p>
-                       
+
                         <Form onSubmit={onSubmit}>
                           <Form.Group controlId="formBasicEmail">
                             <Form.Label>Booking date</Form.Label>
@@ -81,7 +82,9 @@ const BookReservations = () => {
                               onChange={(e) => setCity(e.target.value)}
                             />
                           </Form.Group>
-                          <Button variant="primary" type="submit">Submit</Button>
+                          <Button variant="primary" type="submit">
+                            Submit
+                          </Button>
                         </Form>
                       </div>
                     </div>

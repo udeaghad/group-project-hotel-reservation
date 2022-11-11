@@ -18,25 +18,7 @@ function ReservationList() {
       try {
         const response = await fetch(`/api/v1/users/${user.id}/reservations/`);
         const json = await response.json();
-
-        let newReservation = [];
-
-        console.log("Data " + json.data.length);
-        console.log("included " + json.included.length);
-
-        for (let i = 0; i < json.data.length; i++) {
-          newReservation.push({
-            id: json.data[i].id,
-            date: json.data[i].attributes.date,
-            city: json.data[i].attributes.city,
-            name: json.included[i].attributes.name,
-            price: json.included[i].attributes.price,
-            hotel_id: json.included[i].id,
-          });
-        }
-        setReservations(newReservation);
-
-        console.log(newReservation);
+        setReservations(json.data);
       } catch (error) {
         console.log("error", error);
       }
@@ -56,13 +38,13 @@ function ReservationList() {
 
   const handleDelete = async (reserve_id, hotel_id) => {
     try {
-      const deleteReservation = await fetch(
+      await fetch(
         `api/v1/users/${user.id}/hotels/${hotel_id}/reservations/${reserve_id}`,
         {
           method: "DELETE",
         }
       );
-      console.log(deleteReservation);
+
       const newReservations = reservations.filter(
         (reserve) => reserve_id !== reserve.id
       );
@@ -91,10 +73,12 @@ function ReservationList() {
                         <p>{reserve.attributes.city}</p>
                         <span>Date: </span>
                         <p>{reserve.attributes.date}</p>
-                        <span>Hotel Id: </span>
-                        <p>{reserve.attributes.hotel_id}</p>
+                        <span>Price: </span>
+                        <p>{reserve.attributes.price}</p>
+                        <span>Hotel name: </span>
+                        <p>{reserve.attributes.hotel_name}</p>
                         <button
-                          id={reserve.id}
+                          id={reserve.attributes.hotel_id}
                           className={reserve.id + " btn btn-primary"}
                           type="button"
                           onClick={(e) => routeDetails(e)}
