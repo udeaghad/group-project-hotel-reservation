@@ -5,13 +5,12 @@ import NavBar from "../components/Navbar";
 import { useSelector } from "react-redux";
 import getHotelDetails from "../Redux/DetailsAction";
 
-const url = "/api/v1/users/1/reservations/";
-// const url1 = '/api/v1/users/1/hotels/1/reservations'
 
 function ReservationList() {
   const user = useSelector((state) => state.user);
   const user_id = user.id;
   const [reservations, setReservations] = useState([]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,29 +29,30 @@ function ReservationList() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
+
   const routeDetails = (e) => {
     let pathDetails = `/Reserve/ReservedDetails`;
     navigate(pathDetails);
     dispatch(getHotelDetails({ user_id: user_id, hotel_id: e.target.id }));
   };
 
-  const handleDelete = async (reserve_id, hotel_id) => {
-    try {
-      await fetch(
-        `api/v1/users/${user.id}/hotels/${hotel_id}/reservations/${reserve_id}`,
-        {
-          method: "DELETE",
-        }
-      );
+ 
+  const handleDelete = async(reserve_id, hotel_id) => {
+  
+   try {
+     await fetch(`api/v1/users/${user.id}/hotels/${hotel_id}/reservations/${reserve_id}`, {
+      method: 'DELETE'
+    }) 
+    
+    const newReservations = reservations.filter(reserve => reserve_id !== reserve.id)
+    setReservations(newReservations)
+    
+   } catch (error) {
+    console.error(error.message)
+   }
+  
+  }
 
-      const newReservations = reservations.filter(
-        (reserve) => reserve_id !== reserve.id
-      );
-      setReservations(newReservations);
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
 
   return (
     <div className="">
@@ -68,6 +68,7 @@ function ReservationList() {
                 <div class="card mx-2 my-2">
                   <div class="card-body">
                     <ul>
+
                       <li key={reserve.id}>
                         <span>City: </span>
                         <p>{reserve.attributes.city}</p>
@@ -108,6 +109,7 @@ function ReservationList() {
       </div>
     </div>
   );
+
 }
 
 export default ReservationList;

@@ -7,9 +7,35 @@ import { Button } from "react-bootstrap";
 import NavBar from "./Navbar";
 
 const CreateUser = () => {
-  const [user, setUser] = useState();
 
-  const dispatch = useDispatch();
+  const [user, setUser] = useState()
+
+  const dispatch = useDispatch()
+
+const navigate = useNavigate()
+const handleSubmit = async(e) => { 
+  e.preventDefault()
+ 
+  try {
+    const response = await fetch('/api/v1/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({username: user})
+    })
+    const result = await response.json()
+        
+    if (result.data) {      
+    dispatch(createUser(result.data))
+    navigate('/hotellist')
+    } else {
+      alert('User already exist')
+    }
+  } catch (error) {
+    console.error(error.message)
+  } 
+  
+}
+
 
   const navigate = useNavigate();
   const handleSubmit = async (e) => {

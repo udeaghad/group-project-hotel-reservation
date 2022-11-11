@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./Navbar";
 
+
 const BookReservations = () => {
   const hotel = useSelector((state) => state.fetchHotel);
   const user = useSelector((state) => state.user);
@@ -30,7 +31,7 @@ const BookReservations = () => {
 
       navigate("/reservationlist");
     } catch (error) {
-      console.error(error.message);
+      console.error(error.message
     }
   };
 
