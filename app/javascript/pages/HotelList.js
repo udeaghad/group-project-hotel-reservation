@@ -1,42 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import NavBar from "../components/Navbar";
+import { useSelector,useDispatch } from 'react-redux';
+import getAllHotelsInfo from '../Redux/HotelAction';
+import { useNavigate } from "react-router-dom";
+import fetchHotelInfo from '../Redux/FetchDetailsAction';
 
-const url = "/api/v1/users/1/hotels";
+
 
 function HotelList() {
-  const [hotels, setHotels] = useState([]);
+  const user = useSelector(state => state.user)
+  const dispatch = useDispatch();
+  
+  useEffect(()=>{    
+    dispatch(getAllHotelsInfo(user.id));  
+  },[])
+  
+  
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        setHotels(json.data);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
+  const getHotels = useSelector(state => state.hotels)
+  
 
-    fetchData();
-  }, []);
-
-  function book(id) {
-    const addReserveURL = `/api/v1/users/1/hotels/${id}/reservations`;
-
-    fetch(addReserveURL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        city: "Irbid",
-        date: "2022-10-26",
-      }),
-    }).then((res) => {
-      console.log("Request complete! response:", res);
-    });
+  const navigate = useNavigate();
+  
+  const handleClick = async (hotel_id) => {   
+    try {            
+            const response = await fetch(`/api/v1/users/${user.id}/hotels/${hotel_id}`);
+            const result = await response.json()              
+            dispatch(fetchHotelInfo(result.data))
+            navigate('/components/BookReservations')    
+    }catch{
+    }      
   }
-
+    
   return (
     <div className="">
       <div className="bg-main"></div>
@@ -77,7 +74,7 @@ function HotelList() {
               },
             }}
           >
-            {hotels.map((hotel) => (
+            {getHotels.map((hotel) => (
                 <li key={hotel.id} className="hotel-card align-items-center">
                   <img
                     src={hotel.attributes.image}

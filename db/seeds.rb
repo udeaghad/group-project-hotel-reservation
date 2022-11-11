@@ -1,7 +1,7 @@
-users = User.create!([
-  {username: "user1"},
-  {username: "user2"}
-])
+# users = User.create!([
+#   {username: "user1"},
+#   {username: "user2"}
+# ])
 
 hotels = Hotel.create!([
   { name: "Standard Double Room", 
@@ -24,12 +24,12 @@ hotels = Hotel.create!([
 # https://images.unsplash.com/photo-1650819542363-9742ff02c9c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80
 # https://images.unsplash.com/photo-1598825597488-259d49a54668?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80
 
-reserve = Reservation.create!([
-  { user_id: 1, hotel_id: 1, city: "New York", date: "2021-10-27"},
-  { user_id: 1, hotel_id: 2, city: "Toronto", date: "2021-10-27"},
-  { user_id: 2, hotel_id: 3, city: "Montreal", date: "2021-10-27"}
-])
+# reserve = Reservation.create!([
+#   { user_id: 1, hotel_id: 1, city: "New York", date: "2021-10-27"},
+#   { user_id: 1, hotel_id: 2, city: "Toronto", date: "2021-10-27"},
+#   { user_id: 2, hotel_id: 3, city: "Montreal", date: "2021-10-27"}
+# ])
 
 puts "Created #{hotels.count} hotels"
-puts "Created #{users.count} users"
-puts "Created #{reserve.count} reservations"
+# puts "Created #{users.count} users"
+# puts "Created #{reserve.count} reservations"
