@@ -21,7 +21,7 @@ default: &default
 
   # password: password
 
-  p  assword: wisdom83@
+  password: wisdom83@
   # password: maen1580
 
   # For details on connection pooling, see Rails configuration guide
