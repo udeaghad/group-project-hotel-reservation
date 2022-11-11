@@ -85,7 +85,7 @@ function HotelList() {
                   <p>{hotel.attributes.livingroom}</p>
                   <p>Price: ${hotel.attributes.price}</p>
                   <p>Sleeps: {hotel.attributes.sleeps}</p>
-                  <button type="button" onClick={() => book(hotel.id)} className="btn btn-primary">
+                  <button type="button" onClick={()=>handleClick(hotel.id)} className="btn btn-primary">
                     Booking
                   </button>
                 </li>
