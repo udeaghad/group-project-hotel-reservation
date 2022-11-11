@@ -14,41 +14,34 @@ const NavBar = () => {
     dispatch(createUser({}));
   };
 
+  // const showSidebar = document.querySelector('.sidebar').attr('class', 'show-sidebar');
+  // let hamburger = document.querySelector('.hamburger');
+
+  // onclick humburger, show sidebar
+  // hamburger.addEventListener('click', showSidebar);
   return (
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
-      <div class="position-sticky pt-3 sidebar-sticky">
-        <ul class="nav flex-column">
-          {attributes ? (
-            <div>
-              <li className="nav-item">Welcome {attributes.username}</li>
-              <li className="nav-item">
-                <Link to="/" onClick={handleSignOut}>
-                  Logout
-                </Link>
-              </li>
-            </div>
-          ) : (
-            <div>
-              <li className="nav-item">
-                <Link to="/createuser">Create New Account</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/userlogin">Login</Link>
-              </li>
-            </div>
-          )}
-          <li class="nav-item">
-            <Link to="/">Home</Link>
-          </li>
-          <li class="nav-item">
-            <Link to="/hotellist">Hotels</Link>
-          </li>
-          <li class="nav-item">
-            <Link to="/reservationlist">Reservations</Link>
-          </li>
-        </ul>
+    <>
+      <div id="sidebar" class="sidebar">
+        {attributes ? (
+          <div className="d-sm-flex">
+            <a>Welcome {attributes.username}</a>
+            <Link to="/" onClick={handleSignOut}>
+              Logout
+            </Link>
+          </div>
+        ) : (
+          <div className="d-sm-flex">
+            <Link to="/createuser">Create New Account</Link>
+            <Link to="/userlogin">Login</Link>
+          </div>
+        )}
+        <div className="d-sm-flex">
+          <Link to="/">Home</Link>
+          <Link to="/hotellist">Hotels</Link>
+          <Link to="/reservationlist">Reservations</Link>
+        </div>
       </div>
-    </nav>
+    </>
   );
 };
 
