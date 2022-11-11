@@ -4,7 +4,7 @@ import NavBar from "../../components/Navbar";
 
 function ReservedDetails() {
   const hotelDetails = useSelector((state) => state.hotelDetails);
-  console.log(hotelDetails);
+  
   const { id, attributes } = hotelDetails;
   // console.log(attributes)
   return (
