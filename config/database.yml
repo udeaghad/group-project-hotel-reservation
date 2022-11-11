@@ -19,9 +19,9 @@ default: &default
   encoding: unicode
   username: postgres
 
-  password: password
+  # password: password
 
-  # password: wisdom83@
+  p  assword: wisdom83@
   # password: maen1580
 
   # For details on connection pooling, see Rails configuration guide
