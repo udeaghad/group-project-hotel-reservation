@@ -9,7 +9,7 @@ import fetchHotelInfo from '../Redux/FetchDetailsAction';
 
 
 
-function HotelList() {
+const HotelList = () => {
   const user = useSelector(state => state.user)
   const dispatch = useDispatch();
   

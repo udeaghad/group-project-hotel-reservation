@@ -12,7 +12,7 @@ import UserLogin from './components/UserLogin';
 import BookReservations from './components/BookReservations';
 
   
-function App() {
+const App = () => {
   return (
     <Router>
       <Routes>

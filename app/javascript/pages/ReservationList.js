@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import getHotelDetails from "../Redux/DetailsAction";
 
 
-function ReservationList() {
+const ReservationList = () => {
   const user = useSelector((state) => state.user);
   const user_id = user.id;
   const [reservations, setReservations] = useState([]);

@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import createUser from '../Redux/UserAction';
 
 
-function Header() {
+const Header = () => {
 
   const user = useSelector((state) => state.user)
   

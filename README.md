@@ -1,3 +1,6 @@
+## Screenshot
+![image](https://user-images.githubusercontent.com/5249414/201314595-cac52384-fcb4-4ed5-b4d8-d92f34116d58.png)
+
 ## Hotel Reservstion 🏩
 This application is a web application for final capstone project that you can find your favorite Hotel around the world and reserve it for a specific date, find information about a hotel at details page and cancel a reservation.
 
@@ -33,10 +36,15 @@ To get a local copy up and running follow these simple steps.
 - Make your way to the correct directory by running this command:
 - `$ cd hotel-reservation`
 - Run npm install
+- Run `bundle install`
+- From `config\database.yml` file, change the username and password to your own username and password.
 - Then you can run this command to configure the app in your PC:
 - `$ rails db:drop db:create db:migrate db:seed`
 - For starting the server to see the app in windows you can run this command:
 - `foreman start`
+
+## Run tests
+- Run `rake rswag` to run the tests.
 
 # Authors
 ## 👤 Mean Mohammad
@@ -70,4 +78,4 @@ Give a ⭐️ if you like this project!
 - Original design idea by [Murat Korkmaz on Behance](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign/modules/173005577).
 
 ## 📝 License
-This project is MIT licensed.
+This project is [MIT](./LICENSE) licensed.

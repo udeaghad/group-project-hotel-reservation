@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import NavBar from "../../components/Navbar";
 
-function ReservedDetails() {
+const ReservedDetails = () => {
   const hotelDetails = useSelector((state) => state.hotelDetails);
   
   const { id, attributes } = hotelDetails;
