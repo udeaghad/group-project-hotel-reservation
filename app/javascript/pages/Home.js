@@ -23,7 +23,8 @@ const Home = () => {
 
       <div className="row main-wrapper">
         <NavBar></NavBar>
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 d-flex flex-column justify-content-center align-items-center">
+          <h2>Home Page</h2>
           <Carousel
             ssr
             partialVisbile
