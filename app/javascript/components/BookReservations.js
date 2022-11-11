@@ -31,7 +31,7 @@ const BookReservations = () => {
 
       navigate("/reservationlist");
     } catch (error) {
-      console.error(error.message
+      console.error(error.message)
     }
   };
 
