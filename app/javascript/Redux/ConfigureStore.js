@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
-import getDetailsReducer from "./hotelDetailsReducer"
-import HomePageReducer from "./HomePageReducer"
+import getDetailsReducer from "./HotelDetailsReducer"
+import HomePageReducer from "./HomepageReducer"
 import getAllHotelsInfoReducer from "./HotelReducer"
 import fetchHotelDetails from "./FetchDetailsReducer"
 import user from "./UserReducer"

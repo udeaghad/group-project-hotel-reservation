@@ -21,8 +21,8 @@ default: &default
 
   # password: password
 
-  password: wisdom83@
-  # password: maen1580
+  # password: wisdom83@
+  password: maen1580
 
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
