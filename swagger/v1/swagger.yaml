@@ -85,9 +85,15 @@ paths:
                   type: string
                 date:
                   type: string
+                hotel_name:
+                  type: string
+                price:
+                  type: string
               required:
               - city
               - date
+              - hotel_name
+              - price
   "/api/v1/users/{user_id}/hotels/{hotel_id}/reservations/{id}":
     parameters:
     - name: user_id

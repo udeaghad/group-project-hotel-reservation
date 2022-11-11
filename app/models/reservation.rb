@@ -6,4 +6,6 @@ class Reservation < ApplicationRecord
   validates :hotel_id, presence: true
   validates :city, presence: true, length: { maximum: 50 }
   validates :date, presence: true
+  validates :hotel_name, presence: true
+  validates :price, presence: true
 end

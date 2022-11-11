@@ -16,13 +16,17 @@ const BookReservations = () =>{
         e.preventDefault();        
         
         try {
-                const response = await fetch(`/api/v1/users/${user.id}/hotels/${hotel.id}/reservations`, {
+                await fetch(`/api/v1/users/${user.id}/hotels/${hotel.id}/reservations`, {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({date:date,city:city})
+                  body: JSON.stringify({
+                    date:date,
+                    city:city,
+                    hotel_name:hotel.attributes.name,
+                    price:hotel.attributes.price,
+                  })
                 })
-                const result = await response.json()
-                         
+                                      
                 navigate('/reservationlist');
                
               } catch (error) {
