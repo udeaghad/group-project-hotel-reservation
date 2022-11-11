@@ -13,6 +13,10 @@ This application is a web application for final capstone project that you can fi
 - GitHub Linters.
 - Code Editor: VS Code.
 
+## Kanban Board
+- Click this [link](https://github.com/users/maenkhraisha/projects/6) to view the Kanaban Board
+- Click this [link](https://docs.google.com/document/d/1GcBpwqr2NsF9umMA4qthxuBxnEjcLagS8p_tt5CwHPc/edit?usp=sharing) to view the initial state of the kanban board
+
 # Getting Started
 To get a local copy up and running follow these simple steps.
 
@@ -28,6 +32,7 @@ To get a local copy up and running follow these simple steps.
 ## Run locally
 - Make your way to the correct directory by running this command:
 - `$ cd hotel-reservation`
+- Run npm install
 - Then you can run this command to configure the app in your PC:
 - `$ rails db:drop db:create db:migrate db:seed`
 - For starting the server to see the app in windows you can run this command:
