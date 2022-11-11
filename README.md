@@ -16,7 +16,7 @@ This application is a web application for final capstone project that you can fi
 ## Kanban Board
 - Click this [link](https://github.com/users/maenkhraisha/projects/6) to view the Kanaban Board
 - Click this [link](https://docs.google.com/document/d/1GcBpwqr2NsF9umMA4qthxuBxnEjcLagS8p_tt5CwHPc/edit?usp=sharing) to view the initial state of the kanban board
-
+- Click [here](https://github.com/maenkhraisha/hotel-reservation) for the main branch of the repo
 # Getting Started
 To get a local copy up and running follow these simple steps.
 
