@@ -1,0 +1,171 @@
+body {
+  /* blur image */
+}
+
+.bg-main {
+  height: 100vh;
+  width: 100%;
+  background-color: #d7d7e2;
+  background-image: url("https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(0.2px);
+  position: fixed;
+  display: block;
+  left: 0;
+  right: 0;
+  z-index: -3;
+}
+
+.nav-item > a {
+  background: #006ca8;
+  padding: 13px;
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+}
+
+.main-wrapper {
+  height: 100vh;
+}
+
+.hotel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  margin: 0 10px;
+  border-radius: 5px;
+  padding: 10px 0;
+  box-shadow: 0 0 10px;
+}
+
+.hotel-card img {
+  border-radius: 50%;
+  width: 80%;
+  border: 10px solid #046ca8;
+}
+
+.react-multi-carousel-item {
+  width: 250px !important;
+}
+
+.react-multi-carousel-list {
+  align-items: center;
+  justify-content: center;
+}
+
+#sidebarMenu {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #046ca8;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+.hamburger {
+  /* display: none; */
+}
+
+.show-sidebar {
+  display: block;
+}
+
+.d-sm-flex {
+  display: block !important;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .sidebar a {
+    float: left;
+  }
+
+  div.content {
+    margin-left: 0;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+
+  .d-sm-flex {
+    display: flex !important;
+  }
+
+  .line {
+    background: #ffc107;
+    width: 47px;
+    height: 7px;
+    margin: 4px;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    cursor: pointer;
+  }
+}
