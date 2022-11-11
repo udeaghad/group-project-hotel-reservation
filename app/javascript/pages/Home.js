@@ -61,7 +61,6 @@ const Home = () => {
             showDots={false}
             sliderClass=""
             slidesToSlide={1}
-            slidePerView={2}
             swipeable
           >
             {hotels.map((hotel) => (
