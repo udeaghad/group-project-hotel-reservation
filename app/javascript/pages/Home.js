@@ -4,9 +4,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import SidebarMenu from "react-bootstrap-sidebar-menu";
 import NavBar from "../components/Navbar";
-import { Image } from "semantic-ui-react";
 
 const Home = () => {
   const hotels = useSelector((state) => state.allHotels);
@@ -28,38 +26,47 @@ const Home = () => {
           <Carousel
             ssr
             partialVisbile
-            deviceType={'desktop'}
+            deviceType={"desktop"}
             itemClass="image-item"
             responsive={{
-				desktop: {
-				  breakpoint: {
-					max: 3000,
-					min: 1024
-				  },
-				  items: 4,
-				  partialVisibilityGutter: 40
-				},
-				mobile: {
-				  breakpoint: {
-					max: 464,
-					min: 0
-				  },
-				  items: 1,
-				  partialVisibilityGutter: 30
-				},
-				tablet: {
-				  breakpoint: {
-					max: 1024,
-					min: 464
-				  },
-				  items: 2,
-				  partialVisibilityGutter: 30
-				}
-			  }}
+              desktop: {
+                breakpoint: {
+                  max: 3000,
+                  min: 1024,
+                },
+                items: 4,
+                partialVisibilityGutter: 40,
+              },
+              mobile: {
+                breakpoint: {
+                  max: 464,
+                  min: 0,
+                },
+                items: 1,
+                partialVisibilityGutter: 30,
+              },
+              tablet: {
+                breakpoint: {
+                  max: 1024,
+                  min: 464,
+                },
+                items: 2,
+                partialVisibilityGutter: 30,
+              },
+            }}
+            rewind={false}
+            rewindWithAnimation={false}
+            rtl={false}
+            shouldResetAutoplay
+            showDots={false}
+            sliderClass=""
+            slidesToSlide={1}
+            slidePerView={2}
+            swipeable
           >
             {hotels.map((hotel) => (
               <div key={hotel.id} class="hotel-card">
-                <p style={{fontWeight: 'bolder'}}>{hotel.attributes.name}</p>
+                <p style={{ fontWeight: "bolder" }}>{hotel.attributes.name}</p>
                 <img
                   src={hotel.attributes.image}
                   alt={hotel.attributes.name}
